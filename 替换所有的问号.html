@@ -1,0 +1,22 @@
+<script>
+  /**
+ * @param {string} s
+ * @return {string}
+ */
+  var modifyString = function (s) {
+    let arm = ['g', 'b', 'j']
+    let str = s.split('')
+    for (let i = 0; i < s.length; i++) {
+      if (s[i] == '?') {
+        for (let j = 0; j < arm.length; j++) {
+          if ((str[i - 1] != arm[j]) && (str[i + 1] != arm[j])) {
+            str[i] = arm[j]
+          }
+        }
+      }
+    }
+    return str.join('')
+  };
+  let s = "?aqg??b"
+  console.log(modifyString(s));
+</script>

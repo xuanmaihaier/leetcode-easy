@@ -1,0 +1,25 @@
+<script>
+  /**
+ * @param {number} n
+ * @return {number}
+ */
+  var totalMoney = function (n) {
+    // 第一个周一存1 每次循环周一加1
+    let d = 1
+    let sum = 0
+    let count = parseInt(n / 7)
+    let last = n % 7
+    for (let i = 0; i < count; i++) {
+      for (let j = d; j < 7 + d; j++) {
+        sum += j
+
+      }
+      d++
+    }
+    for (let i = d; i < last + d; i++) {
+      sum += i
+    }
+    return sum
+  }
+  console.log(totalMoney(20));
+</script>
