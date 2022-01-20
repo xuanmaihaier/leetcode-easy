@@ -1,0 +1,20 @@
+<script>
+  var construct2DArray = function (original, m, n) {
+    let arr = []
+    let count = m % 2 == 0 ? n : m
+    if (!(original.length % (m * n) == 0) || original.length > (m * n)) return []
+    for (let i = 0; i < m; i++) {
+      arr[i] = new Array()
+      for (let j = 0; j < n; j++) {
+        arr[i][j] = original[i * n + j]
+      }
+    }
+    return arr
+  };
+  // original = [3], m = 1, n = 2
+  original = [2], m = 1, n = 1
+  // original = [1, 2], m = 1, n = 1
+  original = [1, 1, 1, 1], m = 4, n = 1
+  // original = [1, 3, 5, 2, 4, 6], m = 2, n = 3
+  console.log(construct2DArray(original, m, n));
+</script>

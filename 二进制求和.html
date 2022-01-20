@@ -1,0 +1,33 @@
+<script>
+  /**
+* @param {string} a
+* @param {string} b
+* @return {string}
+*/
+  var addBinary = function (a, b) {
+    let c = a.length - 1
+    let d = b.length - 1
+    let carry = 0
+    let result = []
+    while (c >= 0 || d >= 0) {
+      let a_result = Number(a[c--]) | 0
+      let d_result = Number(b[d--]) | 0
+      let sum = a_result + d_result + carry
+      if (sum >= 2) {
+        carry = 1
+        sum = sum - 2
+      } else {
+        carry = 0
+      }
+      console.log(sum);
+      result.unshift(sum)
+
+    }
+    if (carry == 1) {
+      result.unshift(1)
+    }
+    result = result.join('')
+    return result
+  };
+  console.log(addBinary('10', '1'));
+</script>

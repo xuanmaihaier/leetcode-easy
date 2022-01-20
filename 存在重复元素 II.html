@@ -1,0 +1,22 @@
+<script>
+  /**
+   * @param {number[]} nums
+   * @param {number} k
+   * @return {boolean}
+   */
+  var containsNearbyDuplicate = function (nums, k) {
+    for (let i = 0; i < nums.length; i++) {
+      let m = nums[i]
+      for (let j = i + 1; j < nums.length; j++) {
+        let t = nums[j];
+        if (t == m) {
+          if (Math.abs(i - j) <= k) {
+            return true
+          }
+        }
+      }
+    }
+    return false
+  };
+  console.log(containsNearbyDuplicate([1,2,3,1,2,3], 2));
+</script>
