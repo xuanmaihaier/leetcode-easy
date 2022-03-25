@@ -1,0 +1,20 @@
+<script>
+  /**
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {void} Do not return anything, modify nums in-place instead.
+ */
+  var rotate = function (nums, k) {
+    let copy = JSON.parse(JSON.stringify(nums))
+    if (k > copy.length) {
+      k = copy.length - 1
+    }
+    for (let i = 0; i < nums.length; i++) {
+      console.log(nums.length % nums.length - k + i > 0 ? nums.length % nums.length - k + i : nums.length - k + i);
+      nums[i] = copy[nums.length % nums.length - k + i >= 0 ? nums.length % nums.length - k + i : nums.length - k + i]
+    }
+    return nums
+  };
+  console.log(rotate(
+    [-1,-100,3,99], 2));
+</script>

@@ -1,0 +1,26 @@
+<script>
+  /**
+ * @param {number[]} nums
+ * @return {number}
+ */
+  var singleNumber = function (nums) {
+    let data = new Map()
+    for (let i = 0; i < nums.length; i++) {
+      data.set(nums[i], 0)
+    }
+    if (data.size == nums.length) return nums
+    for (let item of data.entries()) {
+      for (let i = 0; i < nums.length; i++) {
+        if (item[0] == nums[i]) {
+          data.set(item[0], ++item[1])
+        }
+      }
+    }
+    for (let item of data.entries()) {
+      if (item[1] === 1) {
+        return item[0]
+      }
+    }
+  };
+  console.log(singleNumber([1]));
+</script>
